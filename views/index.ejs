@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor Products</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link your custom CSS file here -->
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Professor Products</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <h1>Welcome to the Professor Products - Autographs</h1>
+        <p>Shop through our lovely professors' autographs below:</p>
+
+        <!-- Doughnut Cards -->
+        <div class="row">
+            <!-- Example Card -->
+<% for (let i = 0; i < professorData.length; i++) { %>            
+   <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="<%= professorData[i].image_url %>" class="card-img-top" alt="Doughnut Image">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= professorData[i].professor_first_name %> <%= professorData[i].professor_last_name %></h5>
+                        <p class="card-text"><%= professorData[i].email %></p>
+                        <p class="card-text">Autograph Cost: $<%= professorData[i].salary %></p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+	    <% if ((i + 1) % 3 === 0) { %>
+	     </div>
+             <div class="row">
+	    <% } %>
+          <% } %>  
+        </div>
+    </div>
+
+    <!-- JavaScript and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
